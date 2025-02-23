@@ -1,0 +1,20 @@
+{
+    "python.defaultInterpreterPath": "/usr/bin/python3",
+    "python.venvPath": "${workspaceFolder}",
+    "python.analysis.autoSearchPaths": true,
+    "python.analysis.diagnosticMode": "workspace",
+    "python.formatting.provider": "black",
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "explicit"
+    },
+    "terminal.integrated.defaultProfile.linux": "bash",
+    "terminal.integrated.profiles.linux": {
+        "Bash (venv)": {
+            "path": "bash",
+            "args": [
+                "-c",
+                "source ~/.bashrc && exec bash"
+            ]
+        }
+    }
+}

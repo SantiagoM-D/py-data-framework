@@ -1,0 +1,35 @@
+{
+  "name": "Python Data Science Dev Container",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "settings": {
+    "terminal.integrated.defaultProfile.linux": "bash",
+    "editor.formatOnSave": true,
+    "python.defaultInterpreterPath": "${containerWorkspaceFolder}/.venv/bin/python"
+  },
+  "extensions": [
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "ms-toolsai.jupyter",
+    "ms-python.black-formatter",
+    "ms-python.flake8",
+    "ms-python.isort",
+    "ms-azuretools.vscode-docker"
+  ],
+  "postCreateCommand": "set -e && if [ ! -d \"${containerWorkspaceFolder}/.venv\" ]; then python -m venv \"${containerWorkspaceFolder}/.venv\"; fi && ${containerWorkspaceFolder}/.venv/bin/python -m pip install --upgrade pip setuptools wheel && if [ -f \"${containerWorkspaceFolder}/requirements.txt\" ]; then ${containerWorkspaceFolder}/.venv/bin/python -m pip install -r \"${containerWorkspaceFolder}/requirements.txt\"; fi",
+  "remoteUser": "vscode",
+  "mounts": [
+    {
+      "source": "postgres-data",
+      "target": "/var/lib/postgresql/data",
+      "type": "volume"
+    }
+  ],
+  "features": {
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "3.12"
+    }
+  }
+}
